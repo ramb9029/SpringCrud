@@ -11,6 +11,7 @@ import java.util.List;
 
 @Repository
 @ComponentScan("config")
+@Transactional
 public class UserDAOImpl implements UserDAO {
 
     private EntityManager entityManager;
@@ -20,24 +21,18 @@ public class UserDAOImpl implements UserDAO {
         this.entityManager = entityManager;
     }
 
-
-    @Transactional
     public List<User> index() {
         return entityManager.createQuery("SELECT user FROM User user", User.class).getResultList();
     }
 
-    @Transactional
-    public User show(int id){
+    public User getUser(int id){
         return entityManager.find(User.class, id);
     }
 
-    @Transactional
     public void save (User user){
         entityManager.persist(user);
-        entityManager.close();
     }
 
-    @Transactional
     public void update (int id, User updatePerson) {
         User personToBeUpdate =  entityManager.getReference(User.class,id);
 
@@ -46,11 +41,11 @@ public class UserDAOImpl implements UserDAO {
         personToBeUpdate.setEmail(updatePerson.getEmail());
     }
 
-    @Transactional
     public void delete (int id) {
         User user = entityManager.find(User.class, id);
         if (user != null) {
             entityManager.remove(user);
         }
+
     }
 }

@@ -27,7 +27,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model) {
-        model.addAttribute("user", userService.show(id));
+        model.addAttribute("user", userService.getUser(id));
         return "show";
     }
 
@@ -45,7 +45,7 @@ public class UserController {
 
     @GetMapping("/{id}/edit")
     public String edit(Model model, @PathVariable("id") int id) {
-        model.addAttribute("user", userService.show(id));
+        model.addAttribute("user", userService.getUser(id));
         return "edit";
     }
 

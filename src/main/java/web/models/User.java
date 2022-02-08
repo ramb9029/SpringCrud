@@ -8,11 +8,9 @@ import javax.validation.constraints.Size;
 public class User {
 
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "name")
     private String name;
 
     //@NotEmpty(message = "Name should not be empty")
@@ -20,7 +18,6 @@ public class User {
     @Column(name = "last_Name")
     private String lastName;
 
-    @Column(name = "email")
     private String email;
 
     public User(){
