@@ -1,5 +1,6 @@
 package web.Service;
 
+import org.springframework.transaction.annotation.Transactional;
 import web.models.User;
 
 import java.util.List;

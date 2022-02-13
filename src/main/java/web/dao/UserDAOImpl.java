@@ -11,7 +11,6 @@ import java.util.List;
 
 @Repository
 @ComponentScan("config")
-@Transactional
 public class UserDAOImpl implements UserDAO {
 
     private EntityManager entityManager;
