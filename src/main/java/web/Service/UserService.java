@@ -6,7 +6,7 @@ import web.models.User;
 import java.util.List;
 
 public interface UserService {
-    List<User> index();
+    List<User> getUsers();
     User getUser(int id);
     void save(User user);
     void update(int id, User updatePerson);
