@@ -20,7 +20,7 @@ public class UserDAOImpl implements UserDAO {
         this.entityManager = entityManager;
     }
 
-    public List<User> index() {
+    public List<User> getUsers() {
         return entityManager.createQuery("SELECT user FROM User user", User.class).getResultList();
     }
 
